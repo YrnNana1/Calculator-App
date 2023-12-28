@@ -6,7 +6,7 @@ public class Gui {
         private Button two;
         private Button three;
         private Button four;
-        private Button Five;
+        private Button five;
         private Button six;
         private Button seven;
         private Button eight;
@@ -23,7 +23,73 @@ public class Gui {
         private Button decimal;
         
         
-        private static final double DISPLAY_FACTOR = 1.5;
+        //private static final double DISPLAY_FACTOR = 1.5;
         private static final int MARGIN = 12;
-        private static final int TEXT_HEIGHT = 25;
+        //private static final int TEXT_HEIGHT = 25;
+
+        public Gui(){
+
+                window.setSize(400,500);
+
+                one = new Button("1");
+                two = new Button("2");
+                three = new Button("3");
+                four = new Button("4");
+                five = new Button("5");
+                six = new Button("6");
+                seven = new Button("7");
+                eight = new Button("8");
+                nine = new Button("9");
+                zero = new Button("0");
+                equals = new Button("=");
+                add = new Button("+");
+                subtract = new Button("-");
+                multiply = new Button("x");
+                divide = new Button("/");
+                negative = new Button("+/-");
+                percent = new Button("%");
+                clear = new Button("C");
+                decimal = new Button(".");
+
+                int buttonWidth = (int) (window.getWidth() / 4.0) - MARGIN;
+                int buttonHeight = (int) (window.getHeight() / 6.0) - MARGIN;
+
+                int rowHeight = window.getHeight() / 6;
+                int colWidth = window.getWidth() / 4;
+
+                one.setBounds(MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
+                two.setBounds(colWidth + MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
+                three.setBounds(2 * colWidth + MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
+                four.setBounds(MARGIN, 3 * rowHeight, buttonWidth, buttonHeight);
+                five.setBounds(colWidth + MARGIN, 3 * rowHeight, buttonWidth, buttonHeight);
+                six.setBounds(2 * colWidth + MARGIN, 3 * rowHeight, buttonWidth, buttonHeight);
+                seven.setBounds(MARGIN, 4 * rowHeight, buttonWidth, buttonHeight);
+                eight.setBounds(colWidth + MARGIN, 4 * rowHeight, buttonWidth, buttonHeight);
+                nine.setBounds(2 * colWidth + MARGIN, 4 * rowHeight, buttonWidth, buttonHeight);
+                zero.setBounds(colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
+                equals.setBounds(2 * colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
+
+                add.setBounds(3 * colWidth + MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
+                subtract.setBounds(3 * colWidth + MARGIN, 3 * rowHeight, buttonWidth, buttonHeight);
+                multiply.setBounds(3 * colWidth + MARGIN, 4 * rowHeight, buttonWidth, buttonHeight);
+                divide.setBounds(3 * colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
+
+                equals.setBounds(3 * colWidth + MARGIN, 6 * rowHeight, buttonWidth, 2 * buttonHeight);
+                negative.setBounds(MARGIN, 6 * rowHeight, buttonWidth, buttonHeight);
+                percent.setBounds(colWidth + MARGIN, 6 * rowHeight, buttonWidth, buttonHeight);
+                clear.setBounds(2 * colWidth + MARGIN, 6 * rowHeight, buttonWidth, buttonHeight);
+                decimal.setBounds(2 * colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
+
+                window.setLayout(null);
+                window.setVisible(true);
+        }
+
+        public void clickedOne(){
+
+        }
+        
+        public void clickedTwo(){
+                
+        }
+        
 }
