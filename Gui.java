@@ -2,6 +2,8 @@ import java.awt.*;
 public class Gui {
 
         private Window window;
+        private Calculator calculator;
+
         private Button one;
         private Button two;
         private Button three;
@@ -25,11 +27,17 @@ public class Gui {
         
         //private static final double DISPLAY_FACTOR = 1.5;
         private static final int MARGIN = 12;
-        //private static final int TEXT_HEIGHT = 25;
+        private static final int TEXT_HEIGHT = 25;
+
+        private TextField displayField;
 
         public Gui(){
 
                 window.setSize(400,500);
+
+                displayField = new TextField();
+                displayField.setBounds(MARGIN, MARGIN, window.getWidth() - 2 * MARGIN, TEXT_HEIGHT);
+                window.add(displayField);
 
                 one = new Button("1");
                 two = new Button("2");
@@ -82,14 +90,93 @@ public class Gui {
 
                 window.setLayout(null);
                 window.setVisible(true);
+
         }
 
         public void clickedOne(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "1");
 
         }
         
         public void clickedTwo(){
-                
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "2");
+        }
+
+        public void clickedThree(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "3");
+        }
+
+        public void clickedFour(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "4");
+        }
+
+        public void clickedFive(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "5");
+        }
+
+        public void clickedSix(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "6");
+        }
+
+        public void clickedSeven(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "7");
+        }
+
+        public void clickedEight(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "8");
+        }
+
+        public void clickedNine(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "9");
+        }
+
+        public void clickedZero(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + "0");
+        }
+
+        public void clickedAdd(){
+                String currentText = displayField.getText();
+                if (!currentText.isEmpty()) {
+                        displayField.setText(currentText + " + ");
+                }
+        }
+
+        public void clickedSubtract(){
+                String currentText = displayField.getText();
+                if (!currentText.isEmpty()) {
+                        displayField.setText(currentText + " - ");
+                }
+        }
+
+        public void clickedMultiply(){
+                String currentText = displayField.getText();
+                if (!currentText.isEmpty()) {
+                        displayField.setText(currentText + " * ");
+                }
+        }
+
+        public void clickedDivide(){
+                String currentText = displayField.getText();
+                if (!currentText.isEmpty()) {
+                        displayField.setText(currentText + " / ");
+                }
+        }
+
+        public void clickedNegative(){
+                String currentText = displayField.getText();
+                if (!currentText.isEmpty()) {
+                        displayField.setText(currentText + " * ");
+                }
         }
         
 }
