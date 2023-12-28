@@ -1,19 +1,23 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+// import static org.junit.jupiter.api.Assertions.*;
+// import org.junit.jupiter.api.Test.*;
+
 public class CalculatorTest {
 
-    public void testAdd(){
+    public void testAdd() {
         Calculator calculator = new Calculator();
-        assertEquals(5.0, calculator.add(2.0, 3.0));
+        assertEquals(5.0, calculator.add(2.0, 3.0), 0.0001);
     }
 
-    public void testSubtract(){
+    public void testSubtract() {
         Calculator calculator = new Calculator();
-        assertEquals(3.0, calculator.subtract(5.0, 2.0));
+        assertEquals(3.0, calculator.subtract(5.0, 2.0), 0.0001);
     }
+
     public void testMultiply() {
         Calculator calculator = new Calculator();
-        assertEquals(15.0, calculator.multiply(5.0, 3.0));
+        assertEquals(15.0, calculator.multiply(5.0, 3.0), 0.0001);
     }
 }
