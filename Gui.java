@@ -1,5 +1,8 @@
 import java.awt.*;
-public class Gui {
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+public class Gui extends JPanel {
 
         private Window window;
         private Calculator calculator;
@@ -33,6 +36,9 @@ public class Gui {
 
         public Gui(){
 
+                window = new JFrame("Calculator"); // Initialize JFrame
+                //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
                 window.setSize(400,500);
 
                 displayField = new TextField();
@@ -61,6 +67,7 @@ public class Gui {
 
                 int buttonWidth = (int) (window.getWidth() / 4.0) - MARGIN;
                 int buttonHeight = (int) (window.getHeight() / 6.0) - MARGIN;
+                
 
                 int rowHeight = window.getHeight() / 6;
                 int colWidth = window.getWidth() / 4;
@@ -80,16 +87,75 @@ public class Gui {
                 add.setBounds(3 * colWidth + MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
                 subtract.setBounds(3 * colWidth + MARGIN, 3 * rowHeight, buttonWidth, buttonHeight);
                 multiply.setBounds(3 * colWidth + MARGIN, 4 * rowHeight, buttonWidth, buttonHeight);
-                divide.setBounds(3 * colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
+                divide.setBounds(3 * colWidth + MARGIN, rowHeight, buttonWidth, buttonHeight);
 
-                equals.setBounds(3 * colWidth + MARGIN, 6 * rowHeight, buttonWidth, 2 * buttonHeight);
-                negative.setBounds(MARGIN, 6 * rowHeight, buttonWidth, buttonHeight);
-                percent.setBounds(colWidth + MARGIN, 6 * rowHeight, buttonWidth, buttonHeight);
-                clear.setBounds(2 * colWidth + MARGIN, 6 * rowHeight, buttonWidth, buttonHeight);
+                equals.setBounds(3 * colWidth + MARGIN, 4 * rowHeight, buttonWidth, 2 * buttonHeight);
+                clear.setBounds(MARGIN, rowHeight, buttonWidth, buttonHeight);
+                negative.setBounds(colWidth + MARGIN, rowHeight, buttonWidth, buttonHeight);
+                percent.setBounds(2 * colWidth + MARGIN, rowHeight, buttonWidth, buttonHeight);
                 decimal.setBounds(2 * colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
 
                 window.setLayout(null);
                 window.setVisible(true);
+
+                window.add(one);
+                one.addActionListener(e -> clickedOne());
+
+                window.add(two);
+                two.addActionListener(e -> clickedTwo());
+
+                window.add(three);
+                three.addActionListener(e -> clickedThree());
+
+                window.add(four);
+                four.addActionListener(e -> clickedFour());
+
+                window.add(five);
+                five.addActionListener(e -> clickedFive());
+
+                window.add(six);
+                six.addActionListener(e -> clickedSix());
+
+                window.add(seven);
+                seven.addActionListener(e -> clickedSeven());
+
+                window.add(eight);
+                eight.addActionListener(e -> clickedEight());
+
+                window.add(nine);
+                nine.addActionListener(e -> clickedNine());
+
+                window.add(zero);
+                zero.addActionListener(e -> clickedZero());
+
+                window.add(equals);
+                equals.addActionListener(e -> clickedEquals());
+
+                window.add(add);
+                add.addActionListener(e -> clickedAdd());
+
+                window.add(subtract);
+                subtract.addActionListener(e -> clickedSubtract());
+
+                window.add(multiply);
+                multiply.addActionListener(e -> clickedMultiply());
+
+                window.add(divide);
+                divide.addActionListener(e -> clickedDivide());
+
+                window.add(negative);
+                negative.addActionListener(e -> clickedNegative());
+
+                window.add(percent);
+                percent.addActionListener(e -> clickedPercent());
+
+                window.add(clear);
+                clear.addActionListener(e -> clickedClear());
+
+                window.add(decimal);
+                decimal.addActionListener(e -> clickedDecimal());
+
+
 
         }
 
@@ -246,4 +312,11 @@ public class Gui {
                     displayField.setText("Invalid Expression");
                 }
             }
+
+            public static void main(String[] args) {
+
+                Gui gui = new Gui();
+                gui.window.setVisible(true);
+        }
+
 }
