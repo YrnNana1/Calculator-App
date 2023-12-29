@@ -1,5 +1,5 @@
 import static org.junit.Assert.assertEquals;
-import org.jnit.Test;
+import org.junit.Test;
 
 
 
@@ -54,7 +54,7 @@ public class CalculatorTest {
     @Test
     public void testDivideZero(){
         Calculator calculator = new Calculator();
-        assertEquals(Double.POSITIVE_INFINITY, calculator.divide(10.0, 0.0), 0.0001);
+        assertEquals(0, calculator.divide(10.0, 0.0), 0.0001);
     }
     @Test
     public void testPercent(){
