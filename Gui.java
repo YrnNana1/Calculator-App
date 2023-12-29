@@ -178,5 +178,72 @@ public class Gui {
                         displayField.setText(currentText + " * ");
                 }
         }
+
+        public void clickedDecimal(){
+                String currentText = displayField.getText();
+                displayField.setText(currentText + " . ");
+        }
+
+        public void clickedPercent() {
+                // Assuming there's a displayField named "displayField" to show the numbers/input
+                String currentText = displayField.getText(); // Get the current text from the display
+                if (!currentText.isEmpty()) {
+                    try {
+                        double number = Double.parseDouble(currentText); // Convert the text to a number
+                        double percent = number / 100.0; // Convert the number to a decimal percent
+                        displayField.setText(String.valueOf(percent)); // Display the percent in the display field
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the text cannot be converted to a number
+                        displayField.setText("Invalid Input");
+                    }
+                }
+            }
         
+        public void clickedClear(){
+                displayField.setText("");
+        }
+
+        public void clickedEquals(){
+                calculate();
+        }
+
+        private void calculate() {
+                String expression = displayField.getText();
+                String[] tokens = expression.split(" ");
+            
+                if (tokens.length == 3) {
+                    try {
+                        double num1 = Double.parseDouble(tokens[0]);
+                        double num2 = Double.parseDouble(tokens[2]);
+                        String operand = tokens[1];
+            
+                        double result = 0;
+            
+                        switch (operand) {
+                            case "+":
+                                result = calculator.add(num1, num2);
+                                break;
+                            case "-":
+                                result = calculator.subtract(num1, num2);
+                                break;
+                            case "*":
+                                result = calculator.multiply(num1, num2);
+                                break;
+                            case "/":
+                                result = calculator.divide(num1, num2);
+                                break;
+                            default:
+                                displayField.setText("Invalid Operation");
+                                break;
+                        }
+            
+                        displayField.setText(String.valueOf(result));
+            
+                    } catch (NumberFormatException e) {
+                        displayField.setText("Invalid Input");
+                    }
+                } else {
+                    displayField.setText("Invalid Expression");
+                }
+            }
 }
