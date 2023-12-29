@@ -313,13 +313,12 @@ public class Gui extends JPanel {
                                 result = calculator.multiply(num1, num2);
                                 break;
                             case "/":
-                                result = calculator.divide(num1, num2);
-                                // if (num2 != 0) {
-                                //     result = num1 / num2;
-                                // } else {
-                                //     displayField.setText("Cannot divide by zero");
-                                //     return;
-                                // }
+                                if (num2 != 0) {
+                                    result = num1 / num2;
+                                } else {
+                                    displayField.setText("Cannot divide by zero");
+                                    return;
+                                }
                                 break;
                             default:
                                 displayField.setText("Invalid Operation");
@@ -345,6 +344,6 @@ public class Gui extends JPanel {
                 gui.window.setVisible(true);
         }
 
-        //lol
+        
 
 }
