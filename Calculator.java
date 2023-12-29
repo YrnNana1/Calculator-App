@@ -10,12 +10,15 @@ public class Calculator {
             return num1 * num2;
         }
         public double divide(double num1, double num2){
-            try{
+            try {
+                if (num2 == 0) {
+                    throw new ArithmeticException("Cannot divide by zero.");
+                }
+        
                 result = num1 / num2;
+            } catch (ArithmeticException e) {
             }
-            catch (ArithmeticException e){
-                System.out.println("Cant divide by 0 dumbass.");
-            }
+        
             return result;
         }
         public double percent(double num){
