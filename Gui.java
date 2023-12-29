@@ -293,6 +293,7 @@ public class Gui extends JPanel {
         private void calculate() {
                 String expression = displayField.getText().trim();
                 String[] tokens = expression.split("(?<=[-+*/])|(?=[-+*/])");
+                calculator = new Calculator();
             
                 if (tokens.length == 3) {
                     try {
@@ -304,21 +305,22 @@ public class Gui extends JPanel {
             
                         switch (operand) {
                             case "+":
-                                result = num1 + num2;
+                                result = calculator.add(num1, num2);
                                 break;
                             case "-":
-                                result = num1 - num2;
+                                result = calculator.subtract(num1, num2);
                                 break;
                             case "*":
-                                result = num1 * num2;
+                                result = calculator.multiply(num1, num2);
                                 break;
                             case "/":
-                                if (num2 != 0) {
-                                    result = num1 / num2;
-                                } else {
-                                    displayField.setText("Cannot divide by zero");
-                                    return;
-                                }
+                                result = calculator.divide(num1, num2);
+                                // if (num2 != 0) {
+                                //     result = num1 / num2;
+                                // } else {
+                                //     displayField.setText("Cannot divide by zero");
+                                //     return;
+                                // }
                                 break;
                             default:
                                 displayField.setText("Invalid Operation");
