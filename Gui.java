@@ -27,8 +27,8 @@ public class Gui extends JPanel {
         private Button clear;
         private Button decimal;
         
+
         
-        //private static final double DISPLAY_FACTOR = 1.5;
         private static final int MARGIN = 12;
         private static final int TEXT_HEIGHT = 25;
 
@@ -36,8 +36,7 @@ public class Gui extends JPanel {
 
         public Gui(){
 
-                window = new JFrame("Calculator"); // Initialize JFrame
-                //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                window = new JFrame("Calculator");
 
                 window.setSize(400,500);
 
@@ -250,19 +249,19 @@ public class Gui extends JPanel {
                         double number = Double.parseDouble(currentText);
                         number = -number;
                         displayField.setText(String.valueOf(number));
-                    } catch (NumberFormatException e) {
+                        } catch (NumberFormatException e) {
                         displayField.setText("Invalid Input");
-                    }
+                        }
                 }
-            }
+        }
 
-            public void clickedDecimal() {
+        public void clickedDecimal() {
                 String currentText = displayField.getText().trim();
                 
                 if (!currentText.contains(".")) {
                     displayField.setText(currentText + ".");
                 }
-            }
+        }
 
         public void clickedPercent() {
                 // Assuming there's a displayField named "displayField" to show the numbers/input
@@ -280,7 +279,7 @@ public class Gui extends JPanel {
                         displayField.setText("Invalid Input");
                     }
                 }
-            }
+        }
         
         public void clickedClear(){
                 displayField.setText("");
@@ -338,12 +337,14 @@ public class Gui extends JPanel {
                 } else {
                     displayField.setText("Invalid Expression");
                 }
-            }
+        }
 
-            public static void main(String[] args) {
+        public static void main(String[] args) {
 
                 Gui gui = new Gui();
                 gui.window.setVisible(true);
         }
+
+        //lol
 
 }

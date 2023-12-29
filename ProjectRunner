@@ -1,12 +1,11 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 public class ProjectRunner {
     
     public static void main(String[] args) {
-        Gui gui = new Gui();
 
-        JFrame frame = new JFrame("Calculator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 500);
-        frame.add(gui); // Add your Gui instance to the JFrame
-        frame.setVisible(true);
+        Gui gui = new Gui();
+        gui.window.setVisible(true);
     }
 }
