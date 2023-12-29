@@ -36,7 +36,7 @@ public class CalculatorTest {
     @Test
     public void testNegMultiply() {
         Calculator calculator = new Calculator();
-        assertEquals(-15.0, calculator.multiply(5.0, -2.0), 0.0001);
+        assertEquals(-10.0, calculator.multiply(5.0, -2.0), 0.0001);
     }
 
     @Test
