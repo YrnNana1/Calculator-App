@@ -34,6 +34,7 @@ public class Gui extends JPanel {
 
         private TextField displayField;
 
+
         /**
          * Initializing the GUI constructor where the window with all the buttons ant their functions
          * are formatted according to desired layout
@@ -260,6 +261,7 @@ public class Gui extends JPanel {
                     displayField.setText(currentText + "+");
                 }
         }
+        
 
         /**
          * Establishing the clicked function of the Subtract button
@@ -270,8 +272,10 @@ public class Gui extends JPanel {
                 if (!currentText.contains("-")) {
                     displayField.setText(currentText + "-");
                 }
+
         }
 
+        
         /**
          * Establishing the clicked function of the Multiply button
          */
@@ -281,6 +285,7 @@ public class Gui extends JPanel {
                 if (!currentText.contains("*")) {
                     displayField.setText(currentText + "*");
                 }
+
         }
 
         /**
@@ -292,6 +297,7 @@ public class Gui extends JPanel {
                 if (!currentText.contains("/")) {
                     displayField.setText(currentText + "/");
                 }
+                
         }
 
         /**
@@ -358,12 +364,13 @@ public class Gui extends JPanel {
                 calculate();
         }
 
+
         /**
          * Establishing the clicked function of the Calculate button
          */
         private void calculate() {
                 String expression = displayField.getText().trim();
-                String[] tokens = expression.split("(?<=[-+*/])|(?=[-+*/])"); //seperating the text properly
+                String[] tokens = expression.split("(?<=[-+*/()])|(?=[-+*/()])"); //seperating the text properly
                                                                                    //to be stored as a token
                 //Initializing a new calculator object
                 calculator = new Calculator();
@@ -412,6 +419,8 @@ public class Gui extends JPanel {
                     displayField.setText("Invalid Expression");
                 }
         }
+
+
 
         /**
          * This is the main method which allows for the GUI to run.
