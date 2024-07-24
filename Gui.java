@@ -2,6 +2,7 @@ import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 public class Gui extends JPanel {
 
         private Window window;
@@ -26,9 +27,7 @@ public class Gui extends JPanel {
         private Button percent;
         private Button clear;
         private Button decimal;
-        
 
-        
         private static final int MARGIN = 12;
         private static final int TEXT_HEIGHT = 25;
 
@@ -38,25 +37,27 @@ public class Gui extends JPanel {
         Double num1;
         Double num2;
 
-
         /**
-         * Initializing the GUI constructor where the window with all the buttons ant their functions
+         * Initializing the GUI constructor where the window with all the buttons ant
+         * their functions
          * are formatted according to desired layout
          */
-        public Gui(){
+        public Gui() {
 
-                //Initializing a new window
+                // Initializing a new window
                 window = new JFrame("Calculator");
 
-                window.setSize(400,500);
+                window.setSize(400, 500);
 
-                //Initializing a text field which is where the numbers will be displayed
+                window.setVisible(false);
+                window.dispose();
+
+                // Initializing a text field which is where the numbers will be displayed
                 displayField = new TextField();
                 displayField.setBounds(MARGIN, MARGIN, window.getWidth() - 2 * MARGIN, TEXT_HEIGHT);
                 window.add(displayField);
 
-
-                //Inializing all the buttons necessary for the calculator
+                // Inializing all the buttons necessary for the calculator
                 one = new Button("1");
                 two = new Button("2");
                 three = new Button("3");
@@ -77,15 +78,15 @@ public class Gui extends JPanel {
                 clear = new Button("C");
                 decimal = new Button(".");
 
-                //Initializing the standard height and width of a button
+                // Initializing the standard height and width of a button
                 int buttonWidth = (int) (window.getWidth() / 4.0) - MARGIN;
                 int buttonHeight = (int) (window.getHeight() / 6.0) - MARGIN;
-                
-                //Initializing the standard rows/column margins for the buttons
+
+                // Initializing the standard rows/column margins for the buttons
                 int rowHeight = window.getHeight() / 6;
                 int colWidth = window.getWidth() / 4;
 
-                //Formatting the buttons into their proper locations on the window
+                // Formatting the buttons into their proper locations on the window
                 one.setBounds(MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
                 two.setBounds(colWidth + MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
                 three.setBounds(2 * colWidth + MARGIN, 2 * rowHeight, buttonWidth, buttonHeight);
@@ -109,8 +110,9 @@ public class Gui extends JPanel {
                 percent.setBounds(2 * colWidth + MARGIN, rowHeight, buttonWidth, buttonHeight);
                 decimal.setBounds(2 * colWidth + MARGIN, 5 * rowHeight, buttonWidth, buttonHeight);
 
-                //Setting window visible and adding all the buttons and their respective functions 
-                //to the window
+                // Setting window visible and adding all the buttons and their respective
+                // functions
+                // to the window
                 window.setLayout(null);
                 window.setVisible(true);
 
@@ -171,23 +173,21 @@ public class Gui extends JPanel {
                 window.add(decimal);
                 decimal.addActionListener(e -> clickedDecimal());
 
-
-
         }
 
         /**
          * Establishing the clicked function of the One button
          */
-        public void clickedOne(){
+        public void clickedOne() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("1"));
 
         }
-        
+
         /**
          * Establishing the clicked function of the two button
          */
-        public void clickedTwo(){
+        public void clickedTwo() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("2"));
         }
@@ -195,7 +195,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Three button
          */
-        public void clickedThree(){
+        public void clickedThree() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("3"));
         }
@@ -203,7 +203,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Four button
          */
-        public void clickedFour(){
+        public void clickedFour() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("4"));
         }
@@ -211,7 +211,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Five button
          */
-        public void clickedFive(){
+        public void clickedFive() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("5"));
         }
@@ -219,7 +219,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Six button
          */
-        public void clickedSix(){
+        public void clickedSix() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("6"));
         }
@@ -227,7 +227,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Seven button
          */
-        public void clickedSeven(){
+        public void clickedSeven() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("7"));
         }
@@ -235,7 +235,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Eight button
          */
-        public void clickedEight(){
+        public void clickedEight() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("8"));
         }
@@ -243,7 +243,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Nine button
          */
-        public void clickedNine(){
+        public void clickedNine() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("9"));
         }
@@ -251,7 +251,7 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Zero button
          */
-        public void clickedZero(){
+        public void clickedZero() {
                 String currentText = displayField.getText();
                 displayField.setText(currentText.concat("0"));
         }
@@ -259,42 +259,40 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Add button
          */
-        public void clickedAdd(){
+        public void clickedAdd() {
                 String currentText = displayField.getText().trim();
-                
+
                 if (!currentText.contains("+")) {
-                    num1 = Double.parseDouble(displayField.getText());
-                    operand = '+';
-                    displayField.setText("");
+                        num1 = Double.parseDouble(displayField.getText());
+                        operand = '+';
+                        displayField.setText("");
                 }
         }
-        
 
         /**
          * Establishing the clicked function of the Subtract button
          */
-        public void clickedSubtract(){
+        public void clickedSubtract() {
                 String currentText = displayField.getText().trim();
-                
+
                 if (!currentText.contains("-")) {
-                    num1 = Double.parseDouble(displayField.getText());
-                    operand = '-';
-                    displayField.setText("");
+                        num1 = Double.parseDouble(displayField.getText());
+                        operand = '-';
+                        displayField.setText("");
                 }
 
         }
 
-        
         /**
          * Establishing the clicked function of the Multiply button
          */
-        public void clickedMultiply(){
+        public void clickedMultiply() {
                 String currentText = displayField.getText().trim();
-                
+
                 if (!currentText.contains("*")) {
-                    num1 = Double.parseDouble(displayField.getText());
-                    operand = '*';
-                    displayField.setText("");
+                        num1 = Double.parseDouble(displayField.getText());
+                        operand = '*';
+                        displayField.setText("");
                 }
 
         }
@@ -302,15 +300,15 @@ public class Gui extends JPanel {
         /**
          * Establishing the clicked function of the Divide button
          */
-        public void clickedDivide(){
+        public void clickedDivide() {
                 String currentText = displayField.getText().trim();
-                
+
                 if (!currentText.contains("/")) {
-                    num1 = Double.parseDouble(displayField.getText());
-                    operand = '/';
-                    displayField.setText("");
+                        num1 = Double.parseDouble(displayField.getText());
+                        operand = '/';
+                        displayField.setText("");
                 }
-                
+
         }
 
         /**
@@ -318,15 +316,17 @@ public class Gui extends JPanel {
          */
         public void clickedNegative() {
                 String currentText = displayField.getText().trim();
-                calculator = new Calculator(); //Initializing a calculator object
+                calculator = new Calculator(); // Initializing a calculator object
 
                 if (!currentText.isEmpty()) {
-                    try {
-                        double number = Double.parseDouble(currentText); //storing the text as a double
-                        number = calculator.negate(number); //calling the negate function from the calculator class
-                        displayField.setText(String.valueOf(number)); //displaying the result back on the text field
+                        try {
+                                double number = Double.parseDouble(currentText); // storing the text as a double
+                                number = calculator.negate(number); // calling the negate function from the calculator
+                                                                    // class
+                                displayField.setText(String.valueOf(number)); // displaying the result back on the text
+                                                                              // field
                         } catch (NumberFormatException e) {
-                        displayField.setText("Invalid Input"); //throwing an exception if input is invalid
+                                displayField.setText("Invalid Input"); // throwing an exception if input is invalid
                         }
                 }
 
@@ -337,9 +337,9 @@ public class Gui extends JPanel {
          */
         public void clickedDecimal() {
                 String currentText = displayField.getText().trim();
-                
+
                 if (!currentText.contains(".")) {
-                    displayField.setText(currentText.concat("."));
+                        displayField.setText(currentText.concat("."));
                 }
 
         }
@@ -351,28 +351,27 @@ public class Gui extends JPanel {
                 calculator = new Calculator();
                 String currentText = displayField.getText();
 
-                if (!currentText.isEmpty()){
-                        double number = Double.parseDouble(currentText); //converting text to a double
-                        double percent = calculator.percent(number); //using calculator method to calculate percent
+                if (!currentText.isEmpty()) {
+                        double number = Double.parseDouble(currentText); // converting text to a double
+                        double percent = calculator.percent(number); // using calculator method to calculate percent
                         displayField.setText(String.valueOf(percent)); // returning the result back to the displau
                 }
-                
+
         }
-        
+
         /**
          * Establishing the clicked function of the Clear button
          */
-        public void clickedClear(){
+        public void clickedClear() {
                 displayField.setText("");
         }
 
         /**
          * Establishing the clicked function of the Equals button
          */
-        public void clickedEquals(){
+        public void clickedEquals() {
                 calculate();
         }
-
 
         /**
          * Establishing the clicked function of the Calculate button
@@ -380,11 +379,11 @@ public class Gui extends JPanel {
         private void calculate() {
 
                 calculator = new Calculator();
-                
+
                 num2 = Double.parseDouble(displayField.getText());
                 double result = 0;
-                
-                switch(operand){
+
+                switch (operand) {
                         case '+':
                                 result = calculator.add(num1, num2);
                                 break;
@@ -395,20 +394,17 @@ public class Gui extends JPanel {
                                 result = calculator.multiply(num1, num2);
                                 break;
                         case '/':
-                              if (num2 != 0){
-                                result = num1/num2;
-                              }
-                              else{
-                                displayField.setText("cannot divide by 0");
-                                return;
-                              }
-                              break;
+                                if (num2 != 0) {
+                                        result = num1 / num2;
+                                } else {
+                                        displayField.setText("cannot divide by 0");
+                                        return;
+                                }
+                                break;
                 }
                 displayField.setText(String.valueOf(result));
                 num1 = result;
         }
-
-
 
         /**
          * This is the main method which allows for the GUI to run.
@@ -419,7 +415,5 @@ public class Gui extends JPanel {
                 Gui gui = new Gui();
                 gui.window.setVisible(true);
         }
-
-
 
 }
